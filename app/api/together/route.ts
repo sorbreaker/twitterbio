@@ -1,9 +1,7 @@
 import Together from "together-ai";
-const together = new Together();
-
-if (!process.env.TOGETHER_API_KEY) throw new Error("Missing Together env var");
 
 export async function POST(req: Request) {
+  const together = new Together();
   const { prompt, model } = await req.json();
 
   const isQwen = model === "Qwen/Qwen3.5-9B";
